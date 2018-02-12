@@ -6,4 +6,19 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://admin:123456@localhost:8761/eureka/
+      defaultZone: http://admin:123456@peer1:8761/eureka/
+#zuul:
+#  routes:
+#    goods:
+#      path: /goods/**
+#      serviceId: cloud-goods
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000
+ribbon:
+  ReadTimeout: 1000
+  ConnectTimeout: 1000
